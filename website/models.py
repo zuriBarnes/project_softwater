@@ -17,10 +17,10 @@ class Coach(models.Model):
     last_name = models.CharField(max_length=40)
     email = models.EmailField()
     role = models.CharField(max_length=40)
+    team = models.ForeignKey('Team', on_delete=models.DO_NOTHING, default= None, null=True )
     bio = models.TextField(default="bio needed")
-    
     def __str__(self):
-        return f"{self.first_name}, {self.last_name}"
+        return f"{self.first_name} {self.last_name} | {self.role}, {self.team}"
 
 class Team(models.Model):
     # Age groups
@@ -63,5 +63,13 @@ class Team(models.Model):
         return f"{self.age_group} {self.side} | {self.level}"
     
 
+class Manager(models.Model):
+    first_name = models.CharField(max_length=40)
+    last_name = models.CharField(max_length=40)
+    email = models.EmailField()
+    team = models.ForeignKey('Team', default='not assigned', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} | {self.team}"
 
 
