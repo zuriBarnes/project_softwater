@@ -22,7 +22,46 @@ class Coach(models.Model):
     def __str__(self):
         return f"{self.first_name}, {self.last_name}"
 
+class Team(models.Model):
+    # Age groups
+    U18 = 'U18'
+    U17 = 'U17'
+    U16 = 'U16'
+    U15 = 'U15'
+    U14 = 'U14'
+    U13 = 'U14'
+    U12 = 'U12'
+    U11 = 'U11'
+    U10 = 'U10'
+    U9 = 'U9'
+    U8 = 'U8'
+    
+    AGE_GROUP_CHOICES = [(U18, 'U18'),
+                         (U17, 'U17'), 
+                         (U16, 'U16'),
+                         (U15, 'U15'),
+                         (U14, 'U14'),
+                         (U13, 'U13'),
+                         (U12, 'U12'),
+                         (U11, 'U11'), 
+                         (U10, 'U10'), 
+                         (U9, 'U9'),
+                         (U8, 'U8'),
+                         ]
+    age_group = models.CharField(max_length=3, choices=AGE_GROUP_CHOICES)
+    GIRLS = 'Girls'
+    BOYS = 'Boys'
+    SIDE_CHOICES = [(BOYS, 'Boys'), (GIRLS, 'Girls')]
+    side = models.CharField(max_length=5, choices=SIDE_CHOICES)
+    BLACK = 'BLK'
+    YELLOW ='YLW'
+    SILVER = 'SLVR'
+    LEVEL_CHOICES = [( BLACK, 'BLK'), (YELLOW, 'YLW'), (SILVER, 'SLVR')]
+    level = models.CharField(max_length=4, choices=LEVEL_CHOICES)
 
+    def __str__(self):
+        return f"{self.age_group} {self.side} | {self.level}"
+    
 
 
 
