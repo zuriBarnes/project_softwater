@@ -70,7 +70,7 @@ class Manager(models.Model):
     first_name = models.CharField(max_length=40)
     last_name = models.CharField(max_length=40)
     email = models.EmailField()
-    team = models.CharField(max_length=5, choices=AGE_GROUP_CHOICES)
+    team = models.ForeignKey('Team', on_delete=models.DO_NOTHING, default= None, null=True )
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
