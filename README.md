@@ -1,14 +1,13 @@
 ## Overview
 
-I often get content requests from my youth sports clients. Most of the requests are adding text or images to existing posts.
-
 ### Problem
 
 Can I create an application that uses the folllowing models?
 Can I develop a website to display the data in a dynamic way?
 Can I use this app in my relance business?
 
-The app will have a simple form for registered users to post data. Then instead of sending emails, users can update the data themselves.
+The app will have a simple form for users to subscribe.
+The Django admin will be used for content updates for Content teams, and writers
 
 ### Models
 
@@ -20,6 +19,10 @@ The app will have a simple form for registered users to post data. Then instead 
 - Event
 - Page
 - Post
+
+### Forms
+
+- Subscribe
 
 ### Users
 
@@ -44,3 +47,4 @@ Dashboard access is reserved for Software Admins only.
 #### Back End
 
 - Django ORM
+- Django Forms
