@@ -15,10 +15,11 @@ The app will have a simple form for registered users to post data. Then instead 
 - Leader
 - Coach
 - Team
-- Manger
-- Image
+- Manager
 - Tournament
 - Event
+- Page
+- Post
 
 ### Users
 

@@ -60,8 +60,10 @@ class Team(models.Model):
     BLACK = 'BLK'
     YELLOW ='YLW'
     SILVER = 'SLVR'
-    LEVEL_CHOICES = [( BLACK, 'BLK'), (YELLOW, 'YLW'), (SILVER, 'SLVR')]
+    REC = 'REC'
+    LEVEL_CHOICES = [( BLACK, 'BLK'), (YELLOW, 'YLW'), (SILVER, 'SLVR'), (REC, 'REC')]
     level = models.CharField(max_length=4, choices=LEVEL_CHOICES)
+    # coach = models.ForeignKey('Coach', on_delete=models.DO_NOTHING, default=None, null=True)
 
     def __str__(self):
         return f"{self.age_group} {self.side} | {self.level}"
