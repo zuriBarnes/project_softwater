@@ -27,6 +27,16 @@ AGE_GROUP_CHOICES = [
     (U8, 'U8'),
 ]
 
+GIRLS = 'Girls'
+BOYS = 'Boys'
+SIDE_CHOICES = [(BOYS, 'Boys'), (GIRLS, 'Girls')]
+
+BLACK = 'BLK'
+YELLOW ='YLW'
+SILVER = 'SLVR'
+REC = 'REC'
+LEVEL_CHOICES = [( BLACK, 'BLK'), (YELLOW, 'YLW'), (SILVER, 'SLVR'), (REC, 'REC')]
+
 # Create your models here.
 
 class Leader(models.Model):
@@ -36,7 +46,6 @@ class Leader(models.Model):
     role = models.CharField(max_length=40)
     bio = models.TextField(default="bio needed")
     
-
     def __str__(self):
         return f"{self.first_name}, {self.last_name}"
     
@@ -47,24 +56,15 @@ class Coach(models.Model):
     role = models.CharField(max_length=40)
     team = models.ForeignKey('Team', on_delete=models.DO_NOTHING, default= None, null=True )
     bio = models.TextField(default="bio needed")
+
     def __str__(self):
         return f"{self.first_name} {self.last_name} | {self.role}, {self.team}"
 
 class Team(models.Model):
-
     age_group = models.CharField(max_length=3, choices=AGE_GROUP_CHOICES)
-    GIRLS = 'Girls'
-    BOYS = 'Boys'
-    SIDE_CHOICES = [(BOYS, 'Boys'), (GIRLS, 'Girls')]
     side = models.CharField(max_length=5, choices=SIDE_CHOICES)
-    BLACK = 'BLK'
-    YELLOW ='YLW'
-    SILVER = 'SLVR'
-    REC = 'REC'
-    LEVEL_CHOICES = [( BLACK, 'BLK'), (YELLOW, 'YLW'), (SILVER, 'SLVR'), (REC, 'REC')]
     level = models.CharField(max_length=4, choices=LEVEL_CHOICES)
-    # coach = models.ForeignKey('Coach', on_delete=models.DO_NOTHING, default=None, null=True)
-
+    
     def __str__(self):
         return f"{self.age_group} {self.side} | {self.level}"
     
@@ -76,5 +76,3 @@ class Manager(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
-
-
