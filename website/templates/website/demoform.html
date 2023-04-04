@@ -1,0 +1,9 @@
+{% extends "./layout.html" %} {% block content %}
+<h2>demo form</h2>
+<section>
+  <form action="/demo/" method="post">
+    {% csrf_token %} {{ form }}
+    <input type="submit" value="Submit" />
+  </form>
+</section>
+{% endblock %}
