@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .forms import SubscribeForm
-from .forms import DemoForm
+from .forms import DemoForm, VolunteerForm
 
 def get_subscribe(request):
     if request.method == 'POST':
@@ -26,12 +26,14 @@ def get_demo(request):
         form = DemoForm()
         return render(request, 'website/demoform.html' , {"form": form})
 
-
-
-
-
-
-
+def get_volunteer(request):
+    if request.method == 'POST':
+        form = VolunteerForm(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect('/thanks/')
+    else:
+        form = VolunteerForm()
+        return render(request, 'website/volunteer.html', {"form": form})
 
 
 
