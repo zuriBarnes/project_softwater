@@ -1,21 +1,19 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from .forms import SubscribeForm
-from .forms import DemoForm, VolunteerForm
+from .forms import *
 
 def get_subscribe(request):
     if request.method == 'POST':
         form = SubscribeForm(request.POST)
         if form.is_valid():
             return HttpResponseRedirect('/thanks/')
-        
     else:
         form = SubscribeForm()
-    return render(request , 'website/subscribe.html' , {'form': form})
-
+        return render(request , 'website/subscribe.html' , {'form': form})
 
 def get_thankyou(request):
-    return render(request, 'website/thanks.html')
+    msg = 'Thanks for your submission. We will be in touch shortly!'
+    return render(request, 'website/thanks.html', {'msg': msg})
 
 def get_demo(request):
     if request.method == 'POST':

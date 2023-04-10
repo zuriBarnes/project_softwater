@@ -9,7 +9,7 @@
   <body>
     <form action="/subscribe/" method="post">
       <h2>Subscribe</h2>
-      {% csrf_token %} {{ form }}
+      {% csrf_token %} {{ form.as_p }}
       <input type="submit" value="Submit" />
     </form>
   </body>

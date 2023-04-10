@@ -1,8 +1,8 @@
-{% extends "./layout.html" %} {% block content %}
-<h2>demo form</h2>
+{% extends "./layout.html" %} 
+{% block content %}
 <section>
   <form action="/demo/" method="post">
-    {% csrf_token %} {{ form }}
+    {% csrf_token %} {{ form.as_p }}
     <input type="submit" value="Submit" />
   </form>
 </section>
