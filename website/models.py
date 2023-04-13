@@ -76,3 +76,11 @@ class Manager(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
+    
+
+class Sub(models.Model):
+    full_name = models.CharField(max_length=40)
+    email = models.EmailField(max_length=264)
+
+    def __str__(self):
+        return f"{self.full_name}"
