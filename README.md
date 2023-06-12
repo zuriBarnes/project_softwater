@@ -4,7 +4,7 @@
 
 Can I create an application that uses the folllowing models?
 Can I develop a website to display the data in a dynamic way?
-Can I use this app in my relance business?
+Can I use this app in my freelance business?
 
 The app will have a simple form for users to subscribe.
 The Django admin will be used for content updates for Content teams, and writers
